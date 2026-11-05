@@ -50,3 +50,18 @@ class Polynomial:
 
     def __radd__(self, other):
         return self + other
+
+    def __sub__(self, other): # self - other
+        return self + (-1 * other)
+
+    def __rsub__(self, other): # other - self
+        return (self * -1) + other
+
+    def __mul__(self, other): # self * other
+        if (isinstance(other, Number)):
+            return Polynomial(tuple(other * a for a in self.coefficients))
+
+        return NotImplemented
+
+    def __rmul__(self, other): # other * self
+        return self * other
