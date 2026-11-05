@@ -50,3 +50,20 @@ class Polynomial:
 
     def __radd__(self, other):
         return self + other
+
+    def dx(self):
+        if not self.degree():
+            return Polynomial((0,))
+        else:
+            coefs = tuple(a * b for a, b in enumerate(
+                    self.coefficients[1:], start=1))
+            return Polynomial(coefs)
+
+
+def derivative(f):
+    if isinstance(f, Polynomial):
+        return f.dx()
+    elif isinstance(f, Number):
+        return Polynomial((0,))
+    else:
+        return NotImplemented
