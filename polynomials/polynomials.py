@@ -50,3 +50,8 @@ class Polynomial:
 
     def __radd__(self, other):
         return self + other
+
+    def __neg__(self):
+        return Polynomial(tuple(-c for c in self.coefficients))
+
+    
