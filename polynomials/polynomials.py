@@ -49,4 +49,4 @@ class Polynomial:
             return NotImplemented
 
     def __radd__(self, other):
-        return self + other
+        return self + others
