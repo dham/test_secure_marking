@@ -50,3 +50,25 @@ class Polynomial:
 
     def __radd__(self, other):
         return self + other
+
+    def __sub__(self, other):
+        if isinstance(other, Polynomial):
+            minusother = Polynomial(([0 - x for x in other.coefficients]))
+            return self + minusother
+        elif isinstance(other, Number):
+            return Polynomial((self.coefficients[0] - other,)
+                              + self.coefficients[1:])
+
+    def __rsub__(self, other):
+        if isinstance(other, Number):
+            return Polynomial((0 - self.coefficients[0] + other,)
+                              + ([0 - x for x in self.coefficients[1:]]))
+
+
+
+if __name__ == "__main__":
+    a = Polynomial((0, 1, 2, 3))
+    b = Polynomial((0, 2, 3, 4))
+    c = Polynomial((0 - x for x in b.coefficients))
+    print(a-b)
+
