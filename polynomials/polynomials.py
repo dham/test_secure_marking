@@ -1,4 +1,5 @@
 from numbers import Number
+from itertools import zip_longest
 
 
 class Polynomial:
@@ -50,3 +51,6 @@ class Polynomial:
 
     def __radd__(self, other):
         return self + other
+
+    def __sub__(self, other):
+        if isinstance(other, )
