@@ -1,7 +1,7 @@
 from numbers import Number
 
 
-class Polynomial:
+class polynomial:
 
     def __init__(self, coefs):
         self.coefficients = coefs
@@ -24,18 +24,17 @@ class Polynomial:
         return " + ".join(reversed(terms)) or "0"
 
     def __repr__(self):
-        return self.__class__.__name__ + "(" + repr(self.coefficients) + ")"
-
-    def __eq__(self, other):
-
-        return isinstance(other, Polynomial) and\
+        return self.__class__.__name__ + "(" + repr(self.coefficients) + ")
+                       
+    def __eq__(self, other):    
+        return isinstance(other, Polynomial) and\    
              self.coefficients == other.coefficients
-
+   
     def __add__(self, other):
 
-        if isinstance(other, Polynomial):
-            common = min(self.degree(), other.degree()) + 1
-            coefs = tuple(a + b for a, b in zip(self.coefficients,
+                        if isinstance(other, Polynomial):
+               common = min(self.degree(), other.degree()) + 1
+                coefs = tuple(a + b for a, b in zip(self.coefficients,
                                                 other.coefficients))
             coefs += self.coefficients[common:] + other.coefficients[common:]
 
@@ -48,5 +47,5 @@ class Polynomial:
         else:
             return NotImplemented
 
-    def __radd__(self, other):
+    def __radd__(self,          other):
         return self + other
