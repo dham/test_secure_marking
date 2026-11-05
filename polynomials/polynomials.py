@@ -30,6 +30,7 @@ class Polynomial:
 
         return isinstance(other, Polynomial) and\
              self.coefficients == other.coefficients
+             ##kwsjdfghdkljgndfgolaejkrgnalghnELKJGNflkgnFLKGNflkgnaeklfjgnslkegnalkgnalefgnakfjgnakjgnaekljgnaeklfgnakldjgnkljadngkjl
 
     def __add__(self, other):
 
@@ -50,3 +51,4 @@ class Polynomial:
 
     def __radd__(self, other):
         return self + other
+    print ('hello hello')
